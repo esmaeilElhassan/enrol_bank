@@ -21,7 +21,7 @@ if ($ADMIN->fulltree) {
         ENROL_EXT_REMOVED_SUSPENDNOROLES => get_string('extremovedsuspendnoroles', 'enrol'),
         ENROL_EXT_REMOVED_UNENROL        => get_string('extremovedunenrol', 'enrol'),
     );
-    $settings->add(new admin_setting_configselect('enrol_bank/expiredaction', get_string('expiredaction', 'enrol_bank'), get_string('expiredaction_help', 'enrol_bank'), ENROL_EXT_REMOVED_KEEP, $options));
+    $settings->add(new admin_setting_configselect('enrol_bank/expiredaction', get_string('expiredaction', 'enrol_bank'), get_string('expiredaction_help', 'enrol_bank'), ENROL_EXT_REMOVED_UNENROL, $options));
 
     $options = array();
     for ($i=0; $i<24; $i++) {
@@ -39,11 +39,11 @@ if ($ADMIN->fulltree) {
     $options = array(ENROL_INSTANCE_ENABLED  => get_string('yes'),
                      ENROL_INSTANCE_DISABLED => get_string('no'));
     $settings->add(new admin_setting_configselect('enrol_bank/status',
-        get_string('status', 'enrol_bank'), get_string('status_desc', 'enrol_bank'), ENROL_INSTANCE_DISABLED, $options));
+        get_string('status', 'enrol_bank'), get_string('status_desc', 'enrol_bank'), ENROL_INSTANCE_ENABLED, $options));
 
     $options = array(1  => get_string('yes'), 0 => get_string('no'));
     $settings->add(new admin_setting_configselect('enrol_bank/newenrols',
-        get_string('newenrols', 'enrol_bank'), get_string('newenrols_desc', 'enrol_bank'), 1, $options));
+        get_string('newenrols', 'enrol_bank'), get_string('newenrols_desc', 'enrol_bank'), 0, $options));
 
     $options = array(1  => get_string('yes'),
                      0 => get_string('no'));
@@ -63,7 +63,7 @@ if ($ADMIN->fulltree) {
 
     $options = array(0 => get_string('no'), 1 => get_string('expirynotifyenroller', 'core_enrol'), 2 => get_string('expirynotifyall', 'core_enrol'));
     $settings->add(new admin_setting_configselect('enrol_bank/expirynotify',
-        get_string('expirynotify', 'core_enrol'), get_string('expirynotify_help', 'core_enrol'), 0, $options));
+        get_string('expirynotify', 'core_enrol'), get_string('expirynotify_help', 'core_enrol'), 2, $options));
 
     $settings->add(new admin_setting_configduration('enrol_bank/expirythreshold',
         get_string('expirythreshold', 'core_enrol'), get_string('expirythreshold_help', 'core_enrol'), 86400, 86400));
